@@ -120,6 +120,24 @@ UInt ppc32g_dirtyhelper_MFSPR_287 ( void )
 #  endif
 }
 
+/* CALLED FROM GENERATED CODE */
+/* DIRTY HELPER (non-referentially transparent) */
+UInt ppc32g_dirtyhelper_MFSPR_526_527 ( UInt r527 )
+{
+#  if defined(__powerpc__) || defined(_AIX)
+   UInt spr;
+   if (r527) {
+      __asm__ __volatile__("mfspr %0,527" : "=b"(spr));
+   } else {
+      __asm__ __volatile__("mfspr %0,526" : "=b"(spr));
+   }
+   return spr;
+#  else
+   return 0;
+#  endif
+}
+
+
 
 /* CALLED FROM GENERATED CODE */
 /* DIRTY HELPER (reads guest state, writes guest mem) */

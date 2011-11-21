@@ -9520,6 +9520,28 @@ static Bool dis_proc_ctl ( const VexAbiInfo* vbi, UInt theInstr )
          break;
       }
 
+
+      case 526 /* 0x20E */:
+      case 527 /* 0x20F */: {
+         UInt     arg  = SPR==526 ? 0 : 1;
+         IRTemp   val  = newTemp(Ity_I32);
+         IRExpr** args = mkIRExprVec_1( mkU32(arg) );
+         IRDirty* d    = unsafeIRDirty_1_N(
+                            val,
+                            0/*regparms*/,
+                            "ppc32g_dirtyhelper_MFSPR_526_527",
+                            fnptr_to_fnentry
+                               (vbi, &ppc32g_dirtyhelper_MFSPR_526_527),
+                            args
+                         );
+         /* execute the dirty call, dumping the result in val. */
+         stmt( IRStmt_Dirty(d) );
+         putIReg( rD_addr,
+                  mkWidenFrom32(ty, mkexpr(val), False/*unsigned*/) );
+         DIP("mfspr r%u,%u", rD_addr, (UInt)SPR);
+         break;
+      }
+
       default:
          vex_printf("dis_proc_ctl(ppc)(mfspr,SPR)(0x%x)\n", SPR);
          return False;

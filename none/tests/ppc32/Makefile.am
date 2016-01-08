@@ -54,13 +54,13 @@ EXTRA_DIST = \
 
 check_PROGRAMS = \
 	allexec \
-	lsw jm-insns round \
+	lsw \
 	test_isa_2_06_part1 test_isa_2_06_part2 test_isa_2_06_part3 \
 	test_dfp1 test_dfp2 test_dfp3 test_dfp4 test_dfp5 \
 	test_isa_2_07_part1 test_isa_2_07_part2 \
 	test_tm test_touch_tm ldst_multiple data-cache-instructions \
 	test_fx test_gx \
-	testVMX twi tw xlc_dbl_u32 power5+_round power6_bcmp \
+	twi tw xlc_dbl_u32 power6_bcmp \
 	bug129390-ppc32 bug139050-ppc32 \
 	ldstrev mftocrf mcrfs
 

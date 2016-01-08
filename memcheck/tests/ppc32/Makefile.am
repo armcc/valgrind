@@ -10,7 +10,7 @@ EXTRA_DIST = $(noinst_SCRIPTS) \
 	power_ISA2_07.stderr.exp power_ISA2_07.vgtest
 
 check_PROGRAMS = \
-	power_ISA2_05 power_ISA2_07
+	power_ISA2_07
 
 power_ISA2_05_CFLAGS = $(AM_CFLAGS) $(WERROR) -Winline -Wall -Wshadow -g \
 		-I$(top_srcdir)/include @FLAG_M32@

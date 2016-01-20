@@ -191,7 +191,7 @@ void do_test_at ( U1* arr )
                "emms"
                : : "r"(arr+dst), "r"(arr+src) : "memory"
             );
-#elif defined(__linux__) && defined(__arm__) && !defined(__aarch64__)
+#elif defined(__linux__) && defined(__arm__) && defined(__ARM_NEON__) && !defined(__aarch64__)
             /* On arm32, many compilers generate a 64-bit float move
                using two 32 bit integer registers, which completely
                defeats this test.  Hence force a 64-bit NEON load and

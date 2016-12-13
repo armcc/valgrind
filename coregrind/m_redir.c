@@ -1277,7 +1277,18 @@ static void add_hardwired_spec (const  HChar* sopatt, const HChar* fnpatt,
    spec->to_addr     = to_addr;
    spec->isWrap      = False;
    spec->isGlobal    = False;
-   spec->mandatory   = mandatory;
+
+   /* Hack: Depending on how glibc was compiled (e.g. optimised for size or
+      built with _FORTIFY_SOURCE enabled) the strlen symbol might not be found.
+      Therefore although we should still try to intercept it, don't make it
+      mandatory to do so. We over-ride "mandatory" here to avoid the need to
+      patch the many different architecture specific callers to
+      add_hardwired_spec(). */
+   if (0==VG_(strcmp)("strlen", fnpatt))
+      spec->mandatory = NULL;
+   else
+      spec->mandatory = mandatory;
+
    /* VARIABLE PARTS */
    spec->mark        = False; /* not significant */
    spec->done        = False; /* not significant */

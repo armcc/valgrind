@@ -56,10 +56,10 @@ allexec_CFLAGS		= $(AM_CFLAGS) @FLAG_W_NO_NONNULL@
 # need special helping w.r.t -mfpu and -mfloat-abi, though.
 # Also force -O0 since -O takes hundreds of MB of memory 
 # for v6intThumb.c.
-v6intARM_CFLAGS   = $(AM_CFLAGS) -g -O0 -mcpu=cortex-a8 -marm
-v6intThumb_CFLAGS = $(AM_CFLAGS) -g -O0 -mcpu=cortex-a8 -mthumb
+v6intARM_CFLAGS   = $(AM_CFLAGS) -g -O0 -marm
+v6intThumb_CFLAGS = $(AM_CFLAGS) -g -O0 -mthumb
 
-v6media_CFLAGS    = $(AM_CFLAGS) -g -O0 -mcpu=cortex-a8 -mthumb
+v6media_CFLAGS    = $(AM_CFLAGS) -g -O0 -mthumb
 
 v8crypto_a_CFLAGS = $(AM_CFLAGS) -g -O0 -mfpu=crypto-neon-fp-armv8 -marm
 v8crypto_t_CFLAGS = $(AM_CFLAGS) -g -O0 -mfpu=crypto-neon-fp-armv8 -mthumb
@@ -72,23 +72,23 @@ v8memory_a_CFLAGS = $(AM_CFLAGS) -g -O0 \
 v8memory_t_CFLAGS = $(AM_CFLAGS) -g -O0 \
 			-march=armv8-a -mfpu=crypto-neon-fp-armv8 -mthumb
 
-vfp_CFLAGS        = $(AM_CFLAGS) -g -O0 -mcpu=cortex-a8 \
+vfp_CFLAGS        = $(AM_CFLAGS) -g -O0 \
 			-mfpu=neon \
 			-mthumb
 
 
-neon128_CFLAGS    = $(AM_CFLAGS) -g -O0 -mcpu=cortex-a8 \
+neon128_CFLAGS    = $(AM_CFLAGS) -g -O0 \
 			-mfpu=neon \
 			-mthumb
 
-neon64_CFLAGS     = $(AM_CFLAGS) -g -O0 -mcpu=cortex-a8 \
+neon64_CFLAGS     = $(AM_CFLAGS) -g -O0 \
 			-mfpu=neon \
 			-mthumb
 
 intdiv_CFLAGS	  = $(AM_CFLAGS) -g -march=armv7ve -mcpu=cortex-a15 -mthumb
-ldrt_CFLAGS	  = $(AM_CFLAGS) -g -mcpu=cortex-a8 -mthumb
-ldrt_arm_CFLAGS	  = $(AM_CFLAGS) -g -mcpu=cortex-a8 -marm
+ldrt_CFLAGS	  = $(AM_CFLAGS) -g -mthumb
+ldrt_arm_CFLAGS	  = $(AM_CFLAGS) -g -marm
 
-vcvt_fixed_float_VFP_CFLAGS = $(AM_CFLAGS) -g -mcpu=cortex-a8 -mfpu=vfpv3
+vcvt_fixed_float_VFP_CFLAGS = $(AM_CFLAGS) -g -mfpu=vfpv3
 
 vfpv4_fma_CFLAGS  = $(AM_CFLAGS) -g -O0 -march=armv7ve -mcpu=cortex-a15 -mfpu=vfpv4 -marm

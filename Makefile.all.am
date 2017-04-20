@@ -209,11 +209,11 @@ AM_CCASFLAGS_PPC64LE_LINUX  = @FLAG_M64@ -g
 
 AM_FLAG_M3264_ARM_LINUX   = @FLAG_M32@
 AM_CFLAGS_ARM_LINUX       = @FLAG_M32@ \
-			 	$(AM_CFLAGS_BASE) -marm -mcpu=cortex-a8
+			 	$(AM_CFLAGS_BASE) -marm
 AM_CFLAGS_PSO_ARM_LINUX   = @FLAG_M32@ $(AM_CFLAGS_BASE) \
-				-marm -mcpu=cortex-a8 $(AM_CFLAGS_PSO_BASE)
+				-marm $(AM_CFLAGS_PSO_BASE)
 AM_CCASFLAGS_ARM_LINUX    = @FLAG_M32@ \
-				-marm -mcpu=cortex-a8 -g
+				-marm -g
 
 AM_FLAG_M3264_ARM64_LINUX = @FLAG_M64@
 AM_CFLAGS_ARM64_LINUX     = @FLAG_M64@ $(AM_CFLAGS_BASE)

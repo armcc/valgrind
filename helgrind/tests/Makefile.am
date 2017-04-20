@@ -192,9 +192,9 @@ if ! VGCONF_PLATFORMS_INCLUDE_X86_DARWIN
 endif
 
 if VGCONF_PLATFORMS_INCLUDE_ARM_LINUX
-annotate_hbefore_CFLAGS = $(AM_CFLAGS) -mcpu=cortex-a8
-tc07_hbl1_CFLAGS        = $(AM_CFLAGS) -mcpu=cortex-a8
-tc08_hbl2_CFLAGS        = $(AM_CFLAGS) -mcpu=cortex-a8
+annotate_hbefore_CFLAGS = $(AM_CFLAGS)
+tc07_hbl1_CFLAGS        = $(AM_CFLAGS)
+tc08_hbl2_CFLAGS        = $(AM_CFLAGS)
 else
 annotate_hbefore_CFLAGS = $(AM_CFLAGS)
 tc07_hbl1_CFLAGS        = $(AM_CFLAGS)

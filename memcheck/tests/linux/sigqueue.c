@@ -8,6 +8,11 @@
 #include <syscall.h>
 #include <unistd.h>
 
+/* musl libc defines siginfo_t __si_fields instead of _sifields */
+#if defined(__linux__) && !defined(__GLIBC__)
+#define _sifields __si_fields
+#endif
+
 int main(int argc, char **argv)
 {
   siginfo_t *si;

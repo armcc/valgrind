@@ -504,7 +504,7 @@ test_strchrnul (void)
 #endif
 
 // DDD: better done by testing for the function.
-#if !defined(__APPLE__) && !defined(__sun)
+#if !defined(__APPLE__) && !defined(__sun) && defined(__GLIBC__)
 static void
 test_rawmemchr (void)
 {
@@ -1451,7 +1451,7 @@ main (void)
   test_strchrnul ();
 # endif
 
-# if !defined(__APPLE__) && !defined(__sun)
+# if !defined(__APPLE__) && !defined(__sun) && defined(__GLIBC__)
   /* rawmemchr.  */
   test_rawmemchr ();
 # endif

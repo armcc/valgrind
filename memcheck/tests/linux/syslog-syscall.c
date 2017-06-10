@@ -6,7 +6,7 @@
  *    klogctl().
  */
 
-#include "../../config.h"
+#include "config.h"
 #include <stdio.h>
 #if defined(HAVE_SYS_KLOG_H)
 #include <sys/klog.h>

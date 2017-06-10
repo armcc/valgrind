@@ -20,7 +20,7 @@
 
 #if !defined(__APPLE__)
 
-#if defined(__sun__)
+#if defined(__sun__) || (defined(__linux__) && !defined(__GLIBC__))
 /* Fake __GLIBC_PREREQ on Solaris. Pretend glibc >= 2.4. */
 # define __GLIBC_PREREQ
 #else

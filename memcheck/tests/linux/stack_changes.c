@@ -10,6 +10,7 @@
 // This test is checking the libc context calls (setcontext, etc.) and
 // checks that Valgrind notices their stack changes properly.
 
+#ifdef __GLIBC__
 typedef  ucontext_t  mycontext;
 
 mycontext ctx1, ctx2, oldc;
@@ -51,9 +52,11 @@ int init_context(mycontext *uc)
 
     return ret;
 }
+#endif
 
 int main(int argc, char **argv)
 {
+#ifdef __GLIBC__
     int c1 = init_context(&ctx1);
     int c2 = init_context(&ctx2);
 
@@ -66,6 +69,8 @@ int main(int argc, char **argv)
     //free(ctx1.uc_stack.ss_sp);
     VALGRIND_STACK_DEREGISTER(c2);
     //free(ctx2.uc_stack.ss_sp);
-
+#else
+    printf("libc context call APIs e.g. getcontext() are deprecated by posix\n");
+#endif
     return 0;
 }

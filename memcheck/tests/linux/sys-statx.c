@@ -7,8 +7,13 @@
 #include <assert.h>
 #include <string.h>
 #include <sys/syscall.h>
+
+#if defined(__GLIBC__) && defined(__GLIBC_PREREQ)
 #if __GLIBC_PREREQ(2,28)
 /* struct statx provided in sys/stat.h */
+#else
+#include <linux/stat.h>
+#endif
 #else
 #include <linux/stat.h>
 #endif

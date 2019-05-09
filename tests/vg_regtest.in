@@ -402,6 +402,7 @@ sub mysystem($)
             exit 1;
         }
     }
+    return $exit_code;
 }
 # if $keepunfiltered, copies $1 to $1.unfiltered.out
 # renames $0 tp $1

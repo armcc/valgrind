@@ -47,7 +47,8 @@ while (my $line = <>)
         $has_function_name = 1 if ($line =~ /<fn>/);
 # This may require tweaking; currently  /lib and /usr/lib are matched
         $has_system_obj = 1 if ($line =~ /<obj>\/lib/);
-        $has_system_obj = 1 if ($line =~ /<obj>\/usr\/lib/);
+# for Yocto, skip /usr since tests are under /usr/lib/...
+#        $has_system_obj = 1 if ($line =~ /<obj>\/usr\/lib/);
     }
 }
 
